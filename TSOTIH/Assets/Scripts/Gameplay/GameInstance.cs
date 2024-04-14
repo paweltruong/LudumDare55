@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameInstance : SingletonMonoBehaviour<GameInstance>
 {
-    public GameState GameState;
+    public GameState GameState = new GameState();
     [SerializeField, Required] internal GameLogic GameLogic;
 
 

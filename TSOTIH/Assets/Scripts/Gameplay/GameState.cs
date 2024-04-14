@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class GameState
 {
-  
+    public List<ItemTypes> Items = new List<ItemTypes>();
+
+
 }
