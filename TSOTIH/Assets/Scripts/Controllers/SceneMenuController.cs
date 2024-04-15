@@ -53,4 +53,12 @@ public class SceneMenuController : SceneLogicController
         prologueScene.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
+
+    public override void GoRight()
+    {
+        base.GoRight();
+
+        startLevelScene.gameObject.SetActive(true);
+        gameObject.SetActive(false);
+    }
 }
