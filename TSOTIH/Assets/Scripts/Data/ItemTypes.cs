@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 public enum ItemTypes
 {
     None = 0,
-    Stick
+    Stick,
+    Papers,
+    Honey,
+    Nut,
 
 }

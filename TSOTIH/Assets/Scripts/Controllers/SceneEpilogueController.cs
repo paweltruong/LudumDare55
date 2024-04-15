@@ -16,7 +16,7 @@ public class SceneEpilogueController : SceneLogicController
         base.GoRight();
 
         MainMenuScene.ResetSceneLogic();
-        MainMenuScene.gameObject.SetActive(true);
+        MainMenuScene.OnSceneEnter(true);
         gameObject.SetActive(false);
         ResetSceneLogic(); 
     }

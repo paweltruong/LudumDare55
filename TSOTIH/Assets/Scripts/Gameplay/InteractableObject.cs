@@ -10,6 +10,7 @@ public class InteractableObject : MonoBehaviour
     [SerializeField] internal string ItemName;
     [SerializeField] internal string Description;
     [SerializeField,Required] internal ItemTypes ItemType;
+    [SerializeField, Required] internal bool availableForPickup = true;
 
     
 
@@ -21,11 +22,13 @@ public class InteractableObject : MonoBehaviour
     private void OnMouseOver()
     {
         outlineObject.SetActive(true);
+        GameInstance.Instance.GameLogic.UpdateTooltip(String.Format("{0} - {1}", ItemName, Description));
     }
 
     private void OnMouseExit()
     {
         outlineObject.SetActive(false);
+        GameInstance.Instance.GameLogic.UpdateTooltip(string.Empty);
     }
 
     private void OnMouseUp()

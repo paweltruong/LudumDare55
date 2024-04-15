@@ -6,6 +6,8 @@ using UnityEngine;
 public class SFXController : SingletonMonoBehaviour<SFXController>
 {
     [SerializeField, Required] AudioClip AweSFX;
+    [SerializeField, Required] AudioClip PickUpSFX;
+
 
     AudioSource audioSource;
 
@@ -19,5 +21,9 @@ public class SFXController : SingletonMonoBehaviour<SFXController>
     public void PlayAwe()
     {
         audioSource.PlayOneShot(AweSFX);
+    }
+    public void PlayPickup()
+    {
+        audioSource.PlayOneShot(PickUpSFX);
     }
 }

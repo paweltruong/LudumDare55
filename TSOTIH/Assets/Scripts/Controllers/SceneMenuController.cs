@@ -50,7 +50,7 @@ public class SceneMenuController : SceneLogicController
         base.GoLeft();
 
         prologueScene.ResetSceneLogic();
-        prologueScene.gameObject.SetActive(true);
+        prologueScene.OnSceneEnter(false);
         gameObject.SetActive(false);
     }
 
@@ -58,7 +58,9 @@ public class SceneMenuController : SceneLogicController
     {
         base.GoRight();
 
-        startLevelScene.gameObject.SetActive(true);
+        GameInstance.Instance.GameLogic.StartNewGame();
+
+        startLevelScene.OnSceneEnter(true);
         gameObject.SetActive(false);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameState
 {
+    public SceneLogicController ActiveScene;
     public List<ItemTypes> Items = new List<ItemTypes>();
 
 

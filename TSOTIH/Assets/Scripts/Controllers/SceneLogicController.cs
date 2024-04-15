@@ -15,10 +15,23 @@ public class SceneLogicController : MonoBehaviour
     public UnityEvent OnLeftRequested = new UnityEvent();
     public UnityEvent OnRightRequested = new UnityEvent();
 
+    public UnityEvent OnUseNut = new UnityEvent();
+
+    internal void UseNut()
+    {
+        OnUseNut.Invoke();
+    }
+
 
     public virtual void ResetSceneLogic()
     {
         
+    }
+
+    public virtual void OnSceneEnter(bool fromLeft)
+    {
+        gameObject.SetActive(true);
+        GameInstance.Instance.GameState.ActiveScene = this;
     }
 
     public void Girl1_StartWalking()
@@ -47,6 +60,11 @@ public class SceneLogicController : MonoBehaviour
     }
     public void Grandpa_Pickup()
     {
+        if (grandpa == null)
+        {
+            Debug.LogWarning("No grandpa in the scene");
+            return;
+        }
         grandpa.TriggerPickup();
     }
     public void Grandpa_Smile()
