@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class MainMenuUIController : MonoBehaviour
 {
-    [SerializeField, Required] GameObject imgBackground;
-    [SerializeField, Required] GameObject txtTitle;
-    [SerializeField, Required] GameObject goMenu;
+    [SerializeField, Required] GameObject goCredits;
     [SerializeField, Required] Button btnNewGame;
+    [SerializeField, Required] Button btnIntro;
+    [SerializeField, Required] Button btnCredits;
+    [SerializeField, Required] Button btnBackToMenu;
 
     private void Awake()
     {
@@ -20,9 +21,7 @@ public class MainMenuUIController : MonoBehaviour
 
     void GameLogic_OnNewGameRequested()
     {
-        imgBackground.SetActive(false);
-        txtTitle.SetActive(false);
-        goMenu.SetActive(false);
+
     }
 
     void BtnNewGame_OnClicked()
