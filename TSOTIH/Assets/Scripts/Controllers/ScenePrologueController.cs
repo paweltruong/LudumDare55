@@ -32,4 +32,9 @@ public class ScenePrologueController : SceneLogicController
         SFXController.Instance.PlayAwe();
         _titleIsShowing = true;
     }
+
+    private void Start()
+    {
+        OnSceneEnter(true);
+    }
 }

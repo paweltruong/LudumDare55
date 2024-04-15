@@ -8,7 +8,8 @@ public class GameLogic : MonoBehaviour
 {
     public UnityEvent OnNewGameRequested = new UnityEvent();
     public UnityEvent<int, InteractableObject> OnItemSlotChanged = new UnityEvent<int, InteractableObject>();
-    public  UnityEvent<string> OnTooltipRequested = new UnityEvent<string>();
+    public UnityEvent<string> OnTooltipRequested = new UnityEvent<string>();
+    public UnityEvent<SceneLogicController> OnActiveSceneChanged = new UnityEvent<SceneLogicController>();
 
     private void Awake()
     {
@@ -49,7 +50,7 @@ public class GameLogic : MonoBehaviour
 
     public void RemoveItem(ItemTypes item)
     {
-       for(int i=0; i <  GameInstance.Instance.GameState.Items.Count; i++) 
+        for (int i = 0; i < GameInstance.Instance.GameState.Items.Count; i++)
         {
             if (GameInstance.Instance.GameState.Items[i] == item)
             {
@@ -60,6 +61,8 @@ public class GameLogic : MonoBehaviour
         }
     }
 
+
+
     internal void NotifySlotItemInteracted(int slotIndex)
     {
         if (GameInstance.Instance.GameState.ActiveScene == null) return;
@@ -67,13 +70,13 @@ public class GameLogic : MonoBehaviour
         if (GameInstance.Instance.GameState.Items.Count > slotIndex)
         {
             var slot = GameInstance.Instance.GameState.Items[slotIndex];
-            switch(slot)
+            switch (slot)
             {
                 case ItemTypes.Nut:
                     GameInstance.Instance.GameState.ActiveScene.UseNut();
                     RemoveItem(ItemTypes.Nut);
                     break;
-                default: 
+                default:
                     break;
             }
         }
@@ -143,5 +146,11 @@ public class GameLogic : MonoBehaviour
             }
         }
         return false;
+    }
+
+    internal void UpdateActiveScene(SceneLogicController sceneLogicController)
+    {
+        GameInstance.Instance.GameState.ActiveScene = sceneLogicController;
+        OnActiveSceneChanged.Invoke(sceneLogicController);
     }
 }

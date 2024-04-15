@@ -9,6 +9,7 @@ public class SceneLogicController : MonoBehaviour
     [SerializeField, Required] ActorCharacterController grandpa;
     [SerializeField, Required] CanvasGroup sceneFader;
     [SerializeField, Required] protected Animator animator;
+    [SerializeField, Required] internal bool bShowItems;
 
     public const string AnimTrigger_FadeOut = "FadeOut";
 
@@ -31,7 +32,8 @@ public class SceneLogicController : MonoBehaviour
     public virtual void OnSceneEnter(bool fromLeft)
     {
         gameObject.SetActive(true);
-        GameInstance.Instance.GameState.ActiveScene = this;
+        GameInstance.Instance.GameLogic.UpdateActiveScene(this);
+        
     }
 
     public void Girl1_StartWalking()

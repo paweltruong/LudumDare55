@@ -8,4 +8,18 @@ public class GameState
     public List<ItemTypes> Items = new List<ItemTypes>();
 
 
+    public bool HasItem(ItemTypes item)
+    {
+
+        for (int i = 0; i < Items.Count; i++)
+        {
+            if (GameInstance.Instance.GameState.Items[i] == item)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
