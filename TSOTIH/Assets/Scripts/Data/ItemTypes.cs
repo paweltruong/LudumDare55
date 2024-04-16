@@ -12,5 +12,6 @@ public enum ItemTypes
     Papers,
     Honey,
     Nut,
+    Hive
 
 }

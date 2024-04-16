@@ -11,16 +11,33 @@ public class SceneLogicController : MonoBehaviour
     [SerializeField, Required] protected Animator animator;
     [SerializeField, Required] internal bool bShowItems;
 
+    [SerializeField, Required] internal bool CanUseNut = false;
+    [SerializeField, Required] internal bool CanUseStick = false;
+
     public const string AnimTrigger_FadeOut = "FadeOut";
 
     public UnityEvent OnLeftRequested = new UnityEvent();
     public UnityEvent OnRightRequested = new UnityEvent();
 
     public UnityEvent OnUseNut = new UnityEvent();
+    public UnityEvent OnUseStick = new UnityEvent();
 
-    internal void UseNut()
+
+
+    internal bool TryUseNut()
     {
+        if (!CanUseNut) return false;
+
         OnUseNut.Invoke();
+        return true;
+    }
+
+    internal bool TryUseStick()
+    {
+        if (!CanUseStick) return false;
+
+        OnUseStick.Invoke();
+        return true;
     }
 
 

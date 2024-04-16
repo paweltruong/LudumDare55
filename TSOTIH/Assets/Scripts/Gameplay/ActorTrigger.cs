@@ -35,7 +35,10 @@ public class ActorTrigger : MonoBehaviour
     private void OnMouseUp()
     {
         Debug.Log(name + " clicked");
-        OnTriggerClicked.Invoke();
-        GameInstance.Instance.GameLogic.UpdateTooltip(string.Empty);
+        if (RequiredItem == ItemTypes.None || GameInstance.Instance.GameState.HasItem(RequiredItem))
+        {
+            OnTriggerClicked.Invoke();
+            GameInstance.Instance.GameLogic.UpdateTooltip(string.Empty);
+        }
     }
 }

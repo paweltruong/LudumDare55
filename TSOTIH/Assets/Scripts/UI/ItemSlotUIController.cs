@@ -49,21 +49,31 @@ public class ItemSlotUIController : MonoBehaviour, IPointerEnterHandler, IPointe
                 ImgStick.SetActive(true);
                 ImgNut.SetActive(false);
                 ImgId.SetActive(false);
+                ImgHoney.SetActive(false);
                 break;
             case ItemTypes.Nut:
                 ImgStick.SetActive(false);
                 ImgNut.SetActive(true);
                 ImgId.SetActive(false);
+                ImgHoney.SetActive(false);
                 break;
             case ItemTypes.Papers:
                 ImgStick.SetActive(false);
                 ImgNut.SetActive(false);
                 ImgId.SetActive(true);
+                ImgHoney.SetActive(false);
+                break;
+            case ItemTypes.Honey:
+                ImgStick.SetActive(false);
+                ImgNut.SetActive(false);
+                ImgId.SetActive(false);
+                ImgHoney.SetActive(true);
                 break;
             default:
                 ImgStick.SetActive(false);
                 ImgNut.SetActive(false);
                 ImgId.SetActive(false);
+                ImgHoney.SetActive(false);
                 break;
         }
     }

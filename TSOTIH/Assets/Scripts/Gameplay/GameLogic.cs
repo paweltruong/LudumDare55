@@ -72,9 +72,17 @@ public class GameLogic : MonoBehaviour
             var slot = GameInstance.Instance.GameState.Items[slotIndex];
             switch (slot)
             {
-                case ItemTypes.Nut:
-                    GameInstance.Instance.GameState.ActiveScene.UseNut();
-                    RemoveItem(ItemTypes.Nut);
+                case ItemTypes.Nut:                    
+                    if (GameInstance.Instance.GameState.ActiveScene.TryUseNut())
+                    {
+                        RemoveItem(ItemTypes.Nut);
+                    }
+                    break;
+                case ItemTypes.Stick:
+                    if (GameInstance.Instance.GameState.ActiveScene.TryUseStick())
+                    {
+                        RemoveItem(ItemTypes.Stick);
+                    }
                     break;
                 default:
                     break;
