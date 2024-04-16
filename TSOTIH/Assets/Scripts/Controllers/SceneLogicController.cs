@@ -50,7 +50,7 @@ public class SceneLogicController : MonoBehaviour
     {
         gameObject.SetActive(true);
         GameInstance.Instance.GameLogic.UpdateActiveScene(this);
-        
+        GameInstance.Instance.GameLogic.UpdateTooltip(string.Empty);
     }
 
     public void Girl1_StartWalking()

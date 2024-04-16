@@ -13,4 +13,14 @@ public class SquirrelController : MonoBehaviour
         GameInstance.Instance.GameLogic.AddItemToAvailableSlot(papers);
         SFXController.Instance.PlayPickup();
     }
+
+    public void ResetState()
+    {
+        var anim = GetComponent<Animator>();
+        if (anim != null)
+        {
+            anim.Rebind();
+            anim.Update(0f);
+        }
+    }
 }
